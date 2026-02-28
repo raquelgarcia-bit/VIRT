@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../VIRT_fall25.ip_user_files/ipstatic/src/ClockGen.vhd" \
+"../../../../VIRT_fall25.ip_user_files/ipstatic/src/SyncAsync.vhd" \
+"../../../../VIRT_fall25.ip_user_files/ipstatic/src/SyncAsyncReset.vhd" \
+"../../../../VIRT_fall25.ip_user_files/ipstatic/src/DVI_Constants.vhd" \
+"../../../../VIRT_fall25.ip_user_files/ipstatic/src/OutputSERDES.vhd" \
+"../../../../VIRT_fall25.ip_user_files/ipstatic/src/TMDS_Encoder.vhd" \
+"../../../../VIRT_fall25.ip_user_files/ipstatic/src/rgb2dvi.vhd" \
+"../../../../VIRT_fall25.gen/sources_1/ip/rgb2dvi_0/sim/rgb2dvi_0.vhd" \
+
+# Do not sort compile order
+nosort

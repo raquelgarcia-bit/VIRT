@@ -1,0 +1,22 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/imports/ov7670_rgb_yuv_320x240_rg/frame_buffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module frame_buffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/new/hdmi_display.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hdmi_display
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/imports/ov7670_rgb_yuv_320x240_rg/mode_sel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mode_sel
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_capture.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ov7670_capture
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_ctrl_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ov7670_ctrl_reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_top_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ov7670_top_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/imports/ov7670_rgb_yuv_320x240_rg/sccb_master.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sccb_master
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.srcs/sources_1/imports/ov7670_rgb_yuv_320x240_rg/top_ov7670.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_ov7670
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/raquel/vivado_projects/VIRT_fall25/VIRT_fall25.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
