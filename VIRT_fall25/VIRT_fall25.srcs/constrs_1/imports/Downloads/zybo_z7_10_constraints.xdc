@@ -5,10 +5,10 @@
 ##------------------------------------------------------------------------------
 
 ## System Clock (125 MHz)
-set_property -dict {PACKAGE_PIN K17 IOSTANDARD LVCMOS33} [get_ports clk125mhz_in]
-create_clock -period 8.000 -name sys_clk [get_ports clk125mhz_in]
+set_property -dict {PACKAGE_PIN K17 IOSTANDARD LVCMOS33} [get_ports clk_125mhz_in]
+create_clock -period 8.000 -name sys_clk [get_ports clk_125mhz_in]
 ## test
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk125mhz_in_IBUF] 
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk125mhz_in_IBUF]
 
 ## Reset Button
 ## FIXME: come back to this

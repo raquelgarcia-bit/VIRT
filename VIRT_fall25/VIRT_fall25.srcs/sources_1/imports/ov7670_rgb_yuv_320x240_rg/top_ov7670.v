@@ -60,13 +60,10 @@ module top_ov7670
      output [2:0] TMDS_Data_p,
      output [2:0] TMDS_Data_n,
 
-     output [3:0] led,
+     output [3:0] led
 
-     // FIXME: May need to be internal wires, if not then added to constraint file
-     // not sure but setting these as internal wires caused 11 new errors
-     output       hdmi_hsync,
-     output       hdmi_vsync
-
+    // output       hdmi_hsync,
+    // output       hdmi_vsync
     );
 
     wire [7:0] hdmi_red;
@@ -105,8 +102,8 @@ module top_ov7670
     wire          clk_125mhz;
     wire          clk_locked;
     
-    //wire       hdmi_hsync;
-    //wire       hdmi_vsync;
+    wire       hdmi_hsync;
+    wire       hdmi_vsync;
 
 
   // 100 MHz clock (already is, only difference with ULX3S
