@@ -43,17 +43,6 @@ module top_ov7670
      input        clk_125mhz_in,
 
      input        btnc,          //select RGB -> YUV -> RGB test -> YUV test
-
-     output       ov7670_sioc,
-     output       ov7670_siod,
-
-     output       ov7670_rst_n,
-     output       ov7670_pwdn,  // not used, not enough pins
-     input        ov7670_vsync,
-     input        ov7670_href,
-     input        ov7670_pclk,
-     output       ov7670_xclk,
-     input  [7:0] ov7670_d,
      
      output TMDS_Clk_p,
      output TMDS_Clk_n,
