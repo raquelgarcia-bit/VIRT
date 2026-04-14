@@ -116,9 +116,9 @@ module top_ov7670
 
     
     clk_wiz_0 clk_wizard (
-      .clk_out1(clk_25mhz),      // 25 MHz pixel clock
-      .clk_out2(clk_125mhz),     // 125 MHz serial clock
-      .clk_out3(ov7670_xclk),    // 25 MHz camera clock
+      .clk_out1(clk_25mhz),      // 25 MHz DVI pixel clock
+      .clk_out2(clk_125mhz),     // 125 MHz DVI serial clock
+      .clk_out3(clk_200mhz),     // 200 MHz CSI clock
       .reset(rst),
       .locked(clk_locked),
       .clk_in1(clk_125mhz_in)    // 125 MHz from board
