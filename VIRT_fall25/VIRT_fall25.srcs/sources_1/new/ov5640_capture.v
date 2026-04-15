@@ -61,12 +61,12 @@ module ov5640_capture
 
         input dphy_clk_lp_n,
         input dphy_clk_lp_p,
-        input dphy_data_lp_n,
-        input dphy_data_lp_p,
+        input [1:0] dphy_data_lp_n,
+        input [1:0] dphy_data_lp_p,
         input dphy_hs_clock_clk_n,
         input dphy_hs_clock_clk_p,
-        input dphy_data_hs_n,
-        input dphy_data_hs_p,
+        input [1:0] dphy_data_hs_n,
+        input [1:0] dphy_data_hs_p,
         
         input             rgbmode,   // RGB444 or YUV422
         input             swap_r_b,  // swaps red with blue
@@ -75,6 +75,76 @@ module ov5640_capture
         output     [c_nb_img_pxls-1:0] addr,
         output     [c_nb_buf-1:0]      dout,
         output            we
+    );
+    
+    mipi_dphy_0 mipi_dphy_inst (
+        .core_clk(clk),
+        .core_rst(rst),
+        .rxbyteclkhs(),
+
+        .system_rst_out(),
+        .init_done(),
+
+        .cl_rxclkactivehs(),
+        .cl_stopstate(),
+        .cl_enable(),
+        .cl_rxulpsclknot(),
+        .cl_ulpsactivenot(),
+
+        .dl0_rxdatahs(),
+        .dl0_rxvalidhs(),
+        .dl0_rxactivehs(),
+        .dl0_rxsynchs(),
+
+        .dl0_forcerxmode(),
+        .dl0_stopstate(),
+        .dl0_enable(),
+        .dl0_ulpsactivenot(),
+
+        .dl0_rxclkesc(),
+        .dl0_rxlpdtesc(),
+        .dl0_rxulpsesc(),
+        .dl0_rxtriggeresc(),
+        .dl0_rxdataesc(),
+        .dl0_rxvalidesc(),
+
+        .dl0_errsoths(),
+        .dl0_errsotsynchs(),
+        .dl0_erresc(),
+        .dl0_errsyncesc(),
+        .dl0_errcontrol(),
+
+        .dl1_rxdatahs(),
+        .dl1_rxvalidhs(),
+        .dl1_rxactivehs(),
+        .dl1_rxsynchs(),
+
+        .dl1_forcerxmode(),
+        .dl1_stopstate(),
+        .dl1_enable(),
+        .dl1_ulpsactivenot(),
+
+        .dl1_rxclkesc(),
+        .dl1_rxlpdtesc(),
+        .dl1_rxulpsesc(),
+        .dl1_rxtriggeresc(),
+        .dl1_rxdataesc(),
+        .dl1_rxvalidesc(),
+
+        .dl1_errsoths(),
+        .dl1_errsotsynchs(),
+        .dl1_erresc(),
+        .dl1_errsyncesc(),
+        .dl1_errcontrol(),
+
+        .clk_hs_rxp(dphy_hs_clock_clk_p),
+        .clk_hs_rxn(dphy_hs_clock_clk_n),
+        .data_hs_rxp(dphy_data_hs_p),
+        .data_hs_rxn(dphy_data_hs_n),
+        .clk_lp_rxp(dphy_clk_lp_p),
+        .clk_lp_rxn(dphy_clk_lp_n),
+        .data_lp_rxp(dphy_data_lp_p),
+        .data_lp_rxn(dphy_data_lp_n)
     );
 
 endmodule

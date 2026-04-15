@@ -47,12 +47,12 @@ module top_ov7670
      // OV5640 CSI high-speed pins
      input dphy_clk_lp_n,
      input dphy_clk_lp_p,
-     input dphy_data_lp_n,
-     input dphy_data_lp_p,
+     input [1:0] dphy_data_lp_n,
+     input [1:0] dphy_data_lp_p,
      input dphy_hs_clock_clk_n,
      input dphy_hs_clock_clk_p,
-     input dphy_data_hs_n,
-     input dphy_data_hs_p,
+     input [1:0] dphy_data_hs_n,
+     input [1:0] dphy_data_hs_p,
      
      // OV5640 SCCB (I2C) pins
      output cam_scl,
