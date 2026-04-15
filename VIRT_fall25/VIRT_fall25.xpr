@@ -132,15 +132,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_capture.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/ov7670_capture.v"/>
-          <Attr Name="ImportTime" Val="1763160341"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_ctrl_reg.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/ov7670_ctrl_reg.v"/>
@@ -177,6 +168,24 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_capture.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/ov7670_capture.v"/>
+          <Attr Name="ImportTime" Val="1763160341"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/ip/mipi_csi2_rx_subsystem_0/mipi_csi2_rx_subsystem_0.xci">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -205,7 +214,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/ip/mipi_csi2_rx_subsystem_0/mipi_csi2_rx_subsystem_0.xci">
+      <File Path="$PSRCDIR/sources_1/new/ov5640_capture.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>

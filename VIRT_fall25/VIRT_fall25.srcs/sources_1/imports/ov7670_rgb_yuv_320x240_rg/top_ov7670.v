@@ -43,6 +43,24 @@ module top_ov7670
      input        clk_125mhz_in,
 
      input        btnc,          //select RGB -> YUV -> RGB test -> YUV test
+
+     // OV5640 CSI high-speed pins
+     input dphy_clk_lp_n,
+     input dphy_clk_lp_p,
+     input dphy_data_lp_n,
+     input dphy_data_lp_p,
+     input dphy_data_lp_n,
+     input dphy_data_lp_p,
+     input dphy_hs_clock_clk_n,
+     input dphy_hs_clock_clk_p,
+     input dphy_data_hs_n,
+     input dphy_data_hs_p,
+     input dphy_data_hs_n,
+     input dphy_data_hs_p,
+     
+     // OV5640 SCCB (I2C) pins
+     output cam_scl,
+     output cam_sda,
      
      output TMDS_Clk_p,
      output TMDS_Clk_n,
@@ -208,18 +226,43 @@ module top_ov7670
      .doutb   (frame_pixel)
    );
 
-  ov7670_capture capture 
+  // ov7670_capture capture 
+  // (
+  //    .rst          (rst_sys),
+  //    .clk          (clk_25mhz),
+  //    .pclk         (ov7670_pclk),
+  //    .vsync        (ov7670_vsync),
+  //    .href         (ov7670_href),
+  //    .rgbmode      (rgbmode),
+  //    .swap_r_b     (swap_r_b),
+  //    //.dataout_test (ov_capture_datatest),
+  //    //.led_test     (led[3:0]),
+  //    .data         (ov7670_d),
+  //    .addr         (capture_addr),
+  //    .dout         (capture_data),
+  //    .we           (capture_we)
+  // );
+
+  ov5640_capture capture 
   (
      .rst          (rst_sys),
-     .clk          (clk_25mhz),
-     .pclk         (ov7670_pclk),
-     .vsync        (ov7670_vsync),
-     .href         (ov7670_href),
+     .clk          (clk200mhz),
      .rgbmode      (rgbmode),
      .swap_r_b     (swap_r_b),
      //.dataout_test (ov_capture_datatest),
      //.led_test     (led[3:0]),
-     .data         (ov7670_d),
+
+     .dphy_data_lp_n(dphy_data_lp_n),
+     .dphy_data_lp_p(dphy_data_lp_p),
+     .dphy_data_lp_n(dphy_data_lp_n),
+     .dphy_data_lp_p(dphy_data_lp_p),
+     .dphy_hs_clock_clk_n(dphy_hs_clock_clk_n),
+     .dphy_hs_clock_clk_p(dphy_hs_clock_clk_p),
+     .dphy_data_hs_n(dphy_data_hs_n),
+     .dphy_data_hs_p(dphy_data_hs_p),
+     .dphy_data_hs_n(dphy_data_hs_n),
+     .dphy_data_hs_p(dphy_data_hs_p),
+
      .addr         (capture_addr),
      .dout         (capture_data),
      .we           (capture_we)
