@@ -72,20 +72,28 @@ module ov5640_capture
         input             swap_r_b,  // swaps red with blue
         output     [11:0] dataout_test,
         output reg [3:0]  led_test,
-        output     [c_nb_img_pxls-1:0] addr,
-        output     [c_nb_buf-1:0]      dout,
-        output            we
+        output reg [c_nb_img_pxls-1:0] addr,
+        output reg [c_nb_buf-1:0]      dout,
+        output reg        we
     );
 
-    reg [2:0] rstn_sync;
-    wire [32-1:0] video_out_tdata;
-    wire [64-1:0] video_out_tuser;
+    // Outputs from the CSI subsystem
+    wire [31:0] video_out_tdata;
+    wire [63:0] video_out_tuser;
     wire video_out_tvalid;
 
     // Reset synchronizer as per https://docs.amd.com/r/en-US/pg232-mipi-csi2-rx/Port-Descriptions
+    reg [2:0] rstn_sync;
     always @(posedge clk) begin
         rstn_sync[2:1] <= rstn_sync[1:0];
         rstn_sync[0] <= ~rst;
+    end
+
+    always @(posedge clk) begin // TODO: doesn't dither yet!
+        we <= video_out_tvalid;
+        dout <= {video_out_tdata[ 7: 0][7:8-  c_nb_buf_red],
+                 video_out_tdata[15: 8][7:8-c_nb_buf_green],
+                 video_out_tdata[23:16][7:8- c_nb_buf_blue]};
     end
 
     mipi_csi2_rx_subsystem_0 (
