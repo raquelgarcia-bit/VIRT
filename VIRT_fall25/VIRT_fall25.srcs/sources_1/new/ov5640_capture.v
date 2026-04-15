@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ov7670_capture
+module ov5640_capture
     #(parameter
         // VGA
         //c_img_cols    = 640, // 10 bits
@@ -57,18 +57,14 @@ module ov7670_capture
     )
     (
         input              rst,    // FPGA reset
-        input              clk,    // FPGA clock
+        input              clk,    // 200 MHz clock
 
         input dphy_clk_lp_n,
         input dphy_clk_lp_p,
         input dphy_data_lp_n,
         input dphy_data_lp_p,
-        input dphy_data_lp_n,
-        input dphy_data_lp_p,
         input dphy_hs_clock_clk_n,
         input dphy_hs_clock_clk_p,
-        input dphy_data_hs_n,
-        input dphy_data_hs_p,
         input dphy_data_hs_n,
         input dphy_data_hs_p,
         

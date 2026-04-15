@@ -49,12 +49,8 @@ module top_ov7670
      input dphy_clk_lp_p,
      input dphy_data_lp_n,
      input dphy_data_lp_p,
-     input dphy_data_lp_n,
-     input dphy_data_lp_p,
      input dphy_hs_clock_clk_n,
      input dphy_hs_clock_clk_p,
-     input dphy_data_hs_n,
-     input dphy_data_hs_p,
      input dphy_data_hs_n,
      input dphy_data_hs_p,
      
@@ -246,20 +242,18 @@ module top_ov7670
   ov5640_capture capture 
   (
      .rst          (rst_sys),
-     .clk          (clk200mhz),
+     .clk          (clk_200mhz),
      .rgbmode      (rgbmode),
      .swap_r_b     (swap_r_b),
      //.dataout_test (ov_capture_datatest),
      //.led_test     (led[3:0]),
 
-     .dphy_data_lp_n(dphy_data_lp_n),
-     .dphy_data_lp_p(dphy_data_lp_p),
+     .dphy_clk_lp_n(dphy_clk_lp_n),
+     .dphy_clk_lp_p(dphy_clk_lp_p),
      .dphy_data_lp_n(dphy_data_lp_n),
      .dphy_data_lp_p(dphy_data_lp_p),
      .dphy_hs_clock_clk_n(dphy_hs_clock_clk_n),
      .dphy_hs_clock_clk_p(dphy_hs_clock_clk_p),
-     .dphy_data_hs_n(dphy_data_hs_n),
-     .dphy_data_hs_p(dphy_data_hs_p),
      .dphy_data_hs_n(dphy_data_hs_n),
      .dphy_data_hs_p(dphy_data_hs_p),
 
