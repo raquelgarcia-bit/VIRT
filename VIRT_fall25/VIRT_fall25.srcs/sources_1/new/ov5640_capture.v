@@ -77,30 +77,41 @@ module ov5640_capture
         output            we
     );
 
+    reg [2:0] rstn_sync;
+    wire [32-1:0] video_out_tdata;
+    wire [64-1:0] video_out_tuser;
+    wire video_out_tvalid;
+
+    // Reset synchronizer as per https://docs.amd.com/r/en-US/pg232-mipi-csi2-rx/Port-Descriptions
+    always @(posedge clk) begin
+        rstn_sync[2:1] <= rstn_sync[1:0];
+        rstn_sync[0] <= ~rst;
+    end
+
     mipi_csi2_rx_subsystem_0 (
         .dphy_clk_200M(clk),
-        .rxbyteclkhs,
-        .system_rst_out,
-        .video_aclk,
-        .video_aresetn,
-        .ctrl_core_en,
-        .active_lanes,
-        .ctrl_dis_in_prgs,
-        .errsotsynchs_intr,
-        .errsoths_intr,
-        .cl_stopstate_intr,
-        .dl0_stopstate_intr,
-        .dl1_stopstate_intr,
-        .crc_status_intr,
-        .ecc_status_intr,
-        .linebuffer_full,
-        .frame_rcvd_pulse_out,
-        .video_out_tdata,
-        .video_out_tdest,
-        .video_out_tlast,
-        .video_out_tready,
-        .video_out_tuser,
-        .video_out_tvalid,
+        .rxbyteclkhs(rxbyteclkhs), // Something PHY related that we don't need
+        .system_rst_out(), // Indicates some sort of PLL hiccup
+        .video_aclk(clk), // NOTE: this can be lower if needed! Minimum appears to be 42 MHz
+        .video_aresetn(rstn_sync),
+        .ctrl_core_en(1), // Sleep is forbidden
+        .active_lanes(2-1), // Number of lanes - 1 is what goes here
+        .ctrl_dis_in_prgs(),
+        .errsotsynchs_intr(),
+        .errsoths_intr(),
+        .cl_stopstate_intr(),
+        .dl0_stopstate_intr(),
+        .dl1_stopstate_intr(),
+        .crc_status_intr(),
+        .ecc_status_intr(),
+        .linebuffer_full(),
+        .frame_rcvd_pulse_out(),
+        .video_out_tdata(video_out_tdata), // Actual cool video gaming data
+        .video_out_tdest(), // TODO: not sure what this is but it does not appear to be relevant with 1 camera
+        .video_out_tlast(), // This is not needed
+        .video_out_tready(1), // We are always ready to accept data
+        .video_out_tuser(video_out_tuser),
+        .video_out_tvalid(video_out_tvalid),
         .mipi_phy_if_clk_hs_n(dphy_hs_clock_clk_n),
         .mipi_phy_if_clk_hs_p(dphy_hs_clock_clk_p),
         .mipi_phy_if_clk_lp_n(dphy_clk_lp_n),
@@ -110,5 +121,4 @@ module ov5640_capture
         .mipi_phy_if_data_lp_n(dphy_data_lp_n),
         .mipi_phy_if_data_lp_p(dphy_data_lp_p)
     );
-
 endmodule
