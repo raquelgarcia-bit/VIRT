@@ -76,75 +76,39 @@ module ov5640_capture
         output     [c_nb_buf-1:0]      dout,
         output            we
     );
-    
-    mipi_dphy_0 mipi_dphy_inst (
-        .core_clk(clk),
-        .core_rst(rst),
-        .rxbyteclkhs(),
 
-        .system_rst_out(),
-        .init_done(),
-
-        .cl_rxclkactivehs(),
-        .cl_stopstate(),
-        .cl_enable(),
-        .cl_rxulpsclknot(),
-        .cl_ulpsactivenot(),
-
-        .dl0_rxdatahs(),
-        .dl0_rxvalidhs(),
-        .dl0_rxactivehs(),
-        .dl0_rxsynchs(),
-
-        .dl0_forcerxmode(),
-        .dl0_stopstate(),
-        .dl0_enable(),
-        .dl0_ulpsactivenot(),
-
-        .dl0_rxclkesc(),
-        .dl0_rxlpdtesc(),
-        .dl0_rxulpsesc(),
-        .dl0_rxtriggeresc(),
-        .dl0_rxdataesc(),
-        .dl0_rxvalidesc(),
-
-        .dl0_errsoths(),
-        .dl0_errsotsynchs(),
-        .dl0_erresc(),
-        .dl0_errsyncesc(),
-        .dl0_errcontrol(),
-
-        .dl1_rxdatahs(),
-        .dl1_rxvalidhs(),
-        .dl1_rxactivehs(),
-        .dl1_rxsynchs(),
-
-        .dl1_forcerxmode(),
-        .dl1_stopstate(),
-        .dl1_enable(),
-        .dl1_ulpsactivenot(),
-
-        .dl1_rxclkesc(),
-        .dl1_rxlpdtesc(),
-        .dl1_rxulpsesc(),
-        .dl1_rxtriggeresc(),
-        .dl1_rxdataesc(),
-        .dl1_rxvalidesc(),
-
-        .dl1_errsoths(),
-        .dl1_errsotsynchs(),
-        .dl1_erresc(),
-        .dl1_errsyncesc(),
-        .dl1_errcontrol(),
-
-        .clk_hs_rxp(dphy_hs_clock_clk_p),
-        .clk_hs_rxn(dphy_hs_clock_clk_n),
-        .data_hs_rxp(dphy_data_hs_p),
-        .data_hs_rxn(dphy_data_hs_n),
-        .clk_lp_rxp(dphy_clk_lp_p),
-        .clk_lp_rxn(dphy_clk_lp_n),
-        .data_lp_rxp(dphy_data_lp_p),
-        .data_lp_rxn(dphy_data_lp_n)
+    mipi_csi2_rx_subsystem_0 (
+        .dphy_clk_200M(clk),
+        .rxbyteclkhs,
+        .system_rst_out,
+        .video_aclk,
+        .video_aresetn,
+        .ctrl_core_en,
+        .active_lanes,
+        .ctrl_dis_in_prgs,
+        .errsotsynchs_intr,
+        .errsoths_intr,
+        .cl_stopstate_intr,
+        .dl0_stopstate_intr,
+        .dl1_stopstate_intr,
+        .crc_status_intr,
+        .ecc_status_intr,
+        .linebuffer_full,
+        .frame_rcvd_pulse_out,
+        .video_out_tdata,
+        .video_out_tdest,
+        .video_out_tlast,
+        .video_out_tready,
+        .video_out_tuser,
+        .video_out_tvalid,
+        .mipi_phy_if_clk_hs_n(dphy_hs_clock_clk_n),
+        .mipi_phy_if_clk_hs_p(dphy_hs_clock_clk_p),
+        .mipi_phy_if_clk_lp_n(dphy_clk_lp_n),
+        .mipi_phy_if_clk_lp_p(dphy_clk_lp_p),
+        .mipi_phy_if_data_hs_n(dphy_data_hs_n),
+        .mipi_phy_if_data_hs_p(dphy_data_hs_p),
+        .mipi_phy_if_data_lp_n(dphy_data_lp_n),
+        .mipi_phy_if_data_lp_p(dphy_data_lp_p)
     );
 
 endmodule
