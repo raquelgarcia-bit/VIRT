@@ -214,12 +214,13 @@ module top_ov7670
 
   frame_buffer fb  
   (
-     .clk     (clk_25mhz),
-     .wea     (capture_we),
-     .addra   (capture_addr),
-     .dina    (capture_data),
-     .addrb   (frame_addr),
-     .doutb   (frame_pixel)
+     .capture_clk (clk_125mhz),
+     .frame_clk   (clk_25mhz),
+     .wea         (capture_we),
+     .addra       (capture_addr),
+     .dina        (capture_data),
+     .addrb       (frame_addr),
+     .doutb       (frame_pixel)
    );
 
   // ov7670_capture capture 

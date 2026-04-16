@@ -41,7 +41,8 @@ module frame_buffer
     c_nb_buf       =   c_nb_buf_red + c_nb_buf_green + c_nb_buf_blue
   )
   (
-   input                          clk,
+   input                          capture_clk,
+   input                          frame_clk,
    input                          wea,
    input      [c_nb_img_pxls-1:0] addra,
    input      [c_nb_buf-1:0]             dina,
@@ -51,10 +52,14 @@ module frame_buffer
 
   reg  [c_nb_buf-1:0] ram[c_img_pxls-1:0];
 
-  always @ (posedge clk)
+  always @ (posedge capture_clk)
   begin
     if (wea)
         ram[addra] <= dina;
+  end
+
+  always @ (posedge frame_clk)
+  begin
     doutb <= ram[addrb];
   end
 
