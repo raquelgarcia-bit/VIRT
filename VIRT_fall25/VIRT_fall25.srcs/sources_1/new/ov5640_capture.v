@@ -81,6 +81,7 @@ module ov5640_capture
     wire [31:0] video_out_tdata;
     wire [63:0] video_out_tuser;
     wire video_out_tvalid;
+    wire frame_start;
 
     // Reset synchronizer as per https://docs.amd.com/r/en-US/pg232-mipi-csi2-rx/Port-Descriptions
     reg [2:0] rstn_sync;
@@ -89,11 +90,21 @@ module ov5640_capture
         rstn_sync[0] <= ~rst;
     end
 
+    always @(posedge clk) begin
+        if (rst) begin
+            addr <= 0;
+        end else if (video_out_tvalid) begin
+            addr <= frame_start ? 0 : frame_start + 1;
+        end
+    end
+
+    assign frame_start = video_out_tuser[0];
+
     always @(posedge clk) begin // TODO: doesn't dither yet!
         we <= video_out_tvalid;
-        dout <= {video_out_tdata[ 7: 0][7:8-  c_nb_buf_red],
-                 video_out_tdata[15: 8][7:8-c_nb_buf_green],
-                 video_out_tdata[23:16][7:8- c_nb_buf_blue]};
+        dout <= {video_out_tdata[7+ 0:8-  c_nb_buf_red+ 0],
+                 video_out_tdata[7+ 8:8-c_nb_buf_green+ 8],
+                 video_out_tdata[7+16:8- c_nb_buf_blue+16]};
     end
 
     mipi_csi2_rx_subsystem_0 (
