@@ -273,7 +273,7 @@ module top_ov7670
      .testmode     (testmode),
      .cnt_reg_test (led[3:0]),
      .done         (config_finished),
-     .sclk         (ov7670_sioc),
+     .sclk         (cam_scl),
      .sdat_on      (sdat_on),
      .sdat_out     (sdat_out),
      .ov7670_rst_n (ov7670_rst_n),
@@ -282,7 +282,7 @@ module top_ov7670
   );
 
   assign resend = 1'b0;
-  assign ov7670_siod = sdat_on ? sdat_out : 1'bz;
+  assign cam_sda = sdat_on ? sdat_out : 1'bz;
 
   assign led[7] = config_finished;
   assign led[6] = 1'b0;
