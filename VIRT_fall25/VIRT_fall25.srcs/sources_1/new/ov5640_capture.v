@@ -56,8 +56,9 @@ module ov5640_capture
         c_nb_buf       =   c_nb_buf_red + c_nb_buf_green + c_nb_buf_blue
     )
     (
-        input              rst,    // FPGA reset
-        input              clk,    // 200 MHz clock
+        input             rst,    // FPGA reset
+        input             clk_200mhz,
+        input             clk_video,
 
         input dphy_clk_lp_n,
         input dphy_clk_lp_p,
@@ -85,12 +86,12 @@ module ov5640_capture
 
     // Reset synchronizer as per https://docs.amd.com/r/en-US/pg232-mipi-csi2-rx/Port-Descriptions
     reg [2:0] rstn_sync;
-    always @(posedge clk) begin
+    always @(posedge clk_video) begin
         rstn_sync[2:1] <= rstn_sync[1:0];
         rstn_sync[0] <= ~rst;
     end
 
-    always @(posedge clk) begin
+    always @(posedge clk_video) begin
         if (rst) begin
             addr <= 0;
         end else if (video_out_tvalid) begin
@@ -100,7 +101,7 @@ module ov5640_capture
 
     assign frame_start = video_out_tuser[0];
 
-    always @(posedge clk) begin // TODO: doesn't dither yet!
+    always @(posedge clk_video) begin // TODO: doesn't dither yet!
         we <= video_out_tvalid;
         dout <= {video_out_tdata[7+ 0:8-  c_nb_buf_red+ 0],
                  video_out_tdata[7+ 8:8-c_nb_buf_green+ 8],
@@ -108,10 +109,10 @@ module ov5640_capture
     end
 
     mipi_csi2_rx_subsystem_0 (
-        .dphy_clk_200M(clk),
+        .dphy_clk_200M(clk_200mhz),
         .rxbyteclkhs(rxbyteclkhs), // Something PHY related that we don't need
         .system_rst_out(), // Indicates some sort of PLL hiccup
-        .video_aclk(clk), // NOTE: this can be lower if needed! Minimum appears to be 42 MHz
+        .video_aclk(clk_video), // NOTE: this can be lower if needed! Minimum appears to be 42 MHz
         .video_aresetn(rstn_sync),
         .ctrl_core_en(1), // Sleep is forbidden
         .active_lanes(2-1), // Number of lanes - 1 is what goes here

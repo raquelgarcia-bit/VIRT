@@ -242,7 +242,8 @@ module top_ov7670
   ov5640_capture capture 
   (
      .rst          (rst_sys),
-     .clk          (clk_200mhz),
+     .clk_200mhz   (clk_200mhz),
+     .clk_video    (clk_125mhz),
      .rgbmode      (rgbmode),
      .swap_r_b     (swap_r_b),
      //.dataout_test (ov_capture_datatest),
