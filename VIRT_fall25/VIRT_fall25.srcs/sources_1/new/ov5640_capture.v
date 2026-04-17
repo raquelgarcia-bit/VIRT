@@ -102,10 +102,14 @@ module ov5640_capture
     assign frame_start = video_out_tuser[0];
 
     always @(posedge clk_video) begin // TODO: doesn't dither yet!
-        we <= video_out_tvalid;
+        if (rst) begin
+            we <= 1'b0;
+        end else begin
+            we <= video_out_tvalid;
+        end
         dout <= {video_out_tdata[7+ 0:8-  c_nb_buf_red+ 0],
-                 video_out_tdata[7+ 8:8-c_nb_buf_green+ 8],
-                 video_out_tdata[7+16:8- c_nb_buf_blue+16]};
+                 video_out_tdata[7+ 8:8- c_nb_buf_blue+ 8],
+                 video_out_tdata[7+16:8-c_nb_buf_green+16]};
     end
 
     mipi_csi2_rx_subsystem_0 (
