@@ -55,8 +55,9 @@ module top_ov7670
      input [1:0] dphy_data_hs_p,
      
      // OV5640 SCCB (I2C) pins
-     output cam_scl,
-     output cam_sda,
+     inout cam_scl,
+     inout cam_sda,
+     output cam_gpio,
      
      output TMDS_Clk_p,
      output TMDS_Clk_n,
@@ -264,25 +265,21 @@ module top_ov7670
      .we           (capture_we)
   );
   
-  ov7670_top_ctrl controller 
+  ov5640_top_ctrl controller 
   (
      .rst          (rst_sys),
-     .clk          (clk_25mhz),
+     .clk          (clk_125mhz),
      .resend       (resend),
      .rgbmode      (rgbmode),
      .testmode     (testmode),
      .cnt_reg_test (led[3:0]),
      .done         (config_finished),
      .sclk         (cam_scl),
-     .sdat_on      (sdat_on),
-     .sdat_out     (sdat_out),
-     .ov7670_rst_n (ov7670_rst_n),
-     .ov7670_clk   (ov7670_xclk),
-     .ov7670_pwdn  (ov7670_pwdn)
+     .sdat         (cam_sda),
+     .power_en     (cam_gpio)
   );
 
   assign resend = 1'b0;
-  assign cam_sda = sdat_on ? sdat_out : 1'bz;
 
   assign led[7] = config_finished;
   assign led[6] = 1'b0;

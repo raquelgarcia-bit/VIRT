@@ -123,6 +123,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/i2c16_test/i2c_master.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../hdl/i2c16_test/i2c_master.v"/>
+          <Attr Name="ImportTime" Val="1776395640"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/mode_sel.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/mode_sel.v"/>
@@ -139,28 +148,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_ctrl_reg.v">
+      <File Path="$PSRCDIR/sources_1/imports/i2c16_test/ov5640_top_ctrl.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/ov7670_ctrl_reg.v"/>
-          <Attr Name="ImportTime" Val="1763160341"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_top_ctrl.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/ov7670_top_ctrl.v"/>
-          <Attr Name="ImportTime" Val="1763160341"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/sccb_master.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/sccb_master.v"/>
-          <Attr Name="ImportTime" Val="1763160341"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../hdl/i2c16_test/ov5640_top_ctrl.v"/>
+          <Attr Name="ImportTime" Val="1776395915"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -183,9 +174,31 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/ov5640_top_ctrl.v">
+      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/sccb_master.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/sccb_master.v"/>
+          <Attr Name="ImportTime" Val="1763160341"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_ctrl_reg.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/ov7670_ctrl_reg.v"/>
+          <Attr Name="ImportTime" Val="1763160341"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ov7670_rgb_yuv_320x240_rg/ov7670_top_ctrl.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../FPGA-robotics/phys_fpga/xilinx_nexys4/ov7670_rgb_yuv_320x240_rg/ov7670_top_ctrl.v"/>
+          <Attr Name="ImportTime" Val="1763160341"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
